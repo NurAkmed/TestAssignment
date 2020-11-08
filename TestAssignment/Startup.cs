@@ -34,7 +34,7 @@ namespace TestAssignment
                             .AllowAnyMethod();
                     });
             });
-            
+            services.AddTransient<ResultArray>();
             services.AddScoped<IResult, ResultIfTwo>();
             services.AddScoped<IResult, ResultIfThree>();
             services.AddScoped<IResult, ResultIfFour>();
@@ -56,6 +56,12 @@ namespace TestAssignment
             app.UseRouting();
             app.UseCors(MyAllowSpecificOrigins);
             app.UseStaticFiles();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "");
+            });
         }
     }
 }
