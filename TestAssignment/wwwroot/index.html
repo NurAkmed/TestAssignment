@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Числа</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container mt-5">
+  <h3 class="mt-5">Введите число</h3>
+    <div class="country-data mt-4">
+        <form class="form-inline">
+            <div class="form-group mx-sm-3 mb-2">
+                <input type="number" id="num" class="form-control" placeholder="Введите число">
+            </div>
+            <button type="button" onclick="loadData()" class="btn btn-primary mb-2">Результат</button>
+        </form>
+    </div>
+    <div><span id="result"></span></div>
+    </div>
+
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    function loadData(){
+        var url = "https://localhost:5001/api/number/";
+        var code = $("#num").val();
+        $.get(url + code, function(data) {
+            $("#result").text("Результат: " + data);
+        });
+        }
+</script>
+</body>
+</html>
