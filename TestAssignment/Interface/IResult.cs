@@ -1,4 +1,4 @@
-﻿﻿namespace TestAssignment.Interface
+﻿namespace TestAssignment.Interface
 {
     public interface IResult
     {
