@@ -7,20 +7,22 @@ namespace TestAssignment.ResultClasses
     {
         public string [] Results(int number)
         {
-            List<IResult> fooBarObjects = new List<IResult>();
-            fooBarObjects.Add(new ResultIfTwo());
-            fooBarObjects.Add(new ResultIfThree());
-            fooBarObjects.Add(new ResultIfFour());
-            fooBarObjects.Add(new ResultIfFive());
-            fooBarObjects.Add(new ResultIfSix());
-            fooBarObjects.Add(new ResultIfSeven());
-            fooBarObjects.Add(new ResultIfEight());
-            fooBarObjects.Add(new ResultIfNine());
-            string [] array = new string[fooBarObjects.Count];
-
-            for (int i = 0; i < fooBarObjects.Count; i++)
+            List<IResult> results = new List<IResult>()
             {
-                array[i] = fooBarObjects[i].Result(number);
+                new ResultIfTwo(),
+                new ResultIfThree(),
+                new ResultIfFour(),
+                new ResultIfFive(),
+                new ResultIfSix(),
+                new ResultIfSeven(),
+                new ResultIfEight(),
+                new ResultIfNine()
+            };
+            string [] array = new string[results.Count];
+
+            for (int i = 0; i < results.Count; i++)
+            {
+                array[i] = results[i].Result(number);
             }
             return array;
         }
